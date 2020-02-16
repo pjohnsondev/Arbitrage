@@ -16,7 +16,7 @@ function updateCOne(){
             }
         }
     };   
-    market.open("GET", "jsoncoinOne.JSON", true);
+    market.open("GET", "json/coinOne.JSON", true);
     market.send();
 };
 updateCOne();
@@ -42,7 +42,7 @@ function updateBTC(){
         }
         
     };
-    market.open("GET", "jsonbtc.JSON", true);
+    market.open("GET", "json/btc.JSON", true);
     market.send();
 };
 updateBTC();
@@ -67,7 +67,7 @@ function calculateDiff(){
             }
         }
     }
-    market.open("GET", "jsonbtcCoinOne.JSON", true);
+    market.open("GET", "json/btcCoinOne.JSON", true);
     market.send();
 };
 calculateDiff();
@@ -98,7 +98,7 @@ function averageSlips(){
             };          
        	};
     };
-    market.open("GET", "jsonbtcCoinOneSlips.JSON", true);
+    market.open("GET", "json/btcCoinOneSlips.JSON", true);
     market.send();
 };
 averageSlips();
