@@ -21,9 +21,11 @@ function slips(){
     if(!$btc || !$coinOne){
     	return;
     }
-
+    
+    // This will create a new JSON object if starting from scratch
+    // 
     if(!$slips){
-    	// exit;
+    	exit;
         // if not, create object model
         $currencyArray = array();
         $currencyArray += ["price" => null];
