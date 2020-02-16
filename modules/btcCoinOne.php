@@ -146,6 +146,7 @@ function btcCoinOne(){
                         // grab the current gap and express as a percentage//
                         $current = ($coinOne[$currency]["toCoinOne"]-$btc[$currency]["toCoinOne"])/$btc[$currency]["toCoinOne"]*100;
                         
+
                         
                         //if $current is > target and previous 'current' < target send alert. This prevents spamming when extreme remains above target//
                         if ($current > $targetHigh && $new[$currency]["high"]['hourly']["current"] < $targetHigh){
@@ -370,7 +371,7 @@ function btcCoinOne(){
                     if($key == "hourly"){
                         // set the hourly array
             		$hourly = $new[$currency]["low"]['hourly'];
-                        $current = ($coinOne[$currency]["toBtc"]-$btc[$currency]["toBtc"])/$coinOne[$currency]["toBtc"]*100;
+                        $current = ($btc[$currency]["toBtc"]-$coinOne[$currency]["toBtc"])/$coinOne[$currency]["toBtc"]*100;
                         // use timer based on once every 10 seconds for value arrays
                         //if extreme is > 9% send email
 	                            if ($current < $targetLow && $new[$currency]["low"]['hourly']["current"] > $targetLow){
@@ -448,9 +449,9 @@ function btcCoinOne(){
                         if($hourly["%s"] == null){
                             $hourly["%s"][0] = $current;
                         } else if($timer%6 == 0 && count($hourly['%s']) < 60){
-                            array_unshift($hourly['%s'], ($coinOne[$currency]["toBtc"]-$btc[$currency]["toBtc"])/$coinOne[$currency]["toBtc"]*100);
+                            array_unshift($hourly['%s'], ($btc[$currency]["toBtc"]-$coinOne[$currency]["toBtc"])/$coinOne[$currency]["toBtc"]*100);
                         } else if ($timer%6 == 0){
-                            array_unshift($hourly['%s'], ($coinOne[$currency]["toBtc"]-$btc[$currency]["toBtc"])/$coinOne[$currency]["toBtc"]*100);
+                            array_unshift($hourly['%s'], ($btc[$currency]["toBtc"]-$coinOne[$currency]["toBtc"])/$coinOne[$currency]["toBtc"]*100);
                             array_pop($hourly['%s']);
                         } else {
                             $hourly["%s"][0] = round(($hourly["%s"][0]+$current)/2, 2);

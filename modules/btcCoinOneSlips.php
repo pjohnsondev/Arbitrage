@@ -137,7 +137,7 @@ function slips(){
         ///////////////////////////////////////////////////////////
         $currencyArray = array();
         $currencyArray += ["price" => round($coinOne[$currency]["toBtc"], 2)];
-        $currencyArray += ["%" => round(((($coinOne[$currency]["toBtc"]-$btc[$currency]["toBtc"])/$coinOne[$currency]["toBtc"])*100), 2)];       
+        $currencyArray += ["%" => round(((($btc[$currency]["toBtc"]-$coinOne[$currency]["toBtc"])/$coinOne[$currency]["toBtc"])*100), 2)];       
         $currencyArray += ["bestSlip" => null];
         $currencyArray += ["worstSlip" => null];
         $currencyArray += ["averageSlip" => null];
@@ -148,21 +148,13 @@ function slips(){
         for($i=1; $i<=179; $i++){
             if(!isset($slips["toBtc"][$i][$currency]['price'])){
                 continue;
-                // $slips["toCoinOne"][$i][$currency] = array(
-                //     "price"=>$btc[$currency]["toBtc"], 
-                //     "%" => ((($coinOne[$currency]["toBtc"]-$btc[$currency]["toBtc"])/$btc[$currency]["toBtc"])*100), 
-                //     "bestSlip"=> 0, 
-                //     "worstSlip"=> 0, 
-                //     "%s" => array(), 
-                //     "averageSlip"=> 0
-                // );
             } else {;
                 //grab original price for array for calculations
                 $price = $slips["toBtc"][$i][$currency]["price"];
                 // set editable variable to current array for editing
                 $slip = $slips["toBtc"][$i][$currency];
                 //set value equal to most recent % to aid in calculation of slips
-                $currentPercent = round(($price-$btc[$currency]["toBtc"])/$price*100, 2);
+                $currentPercent = round(($btc[$currency]["toBtc"]-$price)/$btc[$currency]["toBtc"]*100, 2);
                 $currentSlip = round($slip["%"]-$currentPercent, 2);
                 //check if there is a bestSlip in current array
                 if(!isset($slip["bestSlip"])){
