@@ -7,9 +7,9 @@
 //             this gives us 180 hence storing 0-179 for each               //
 //////////////////////////////////////////////////////////////////////////////
 function slips(){
-    $btc = file_get_contents("/Library/WebServer/Documents/public_html/json/btc.JSON");
-    $coinOne = file_get_contents("/Library/WebServer/Documents/public_html/json/coinOne.JSON");
-    $slips = file_get_contents("/Library/WebServer/Documents/public_html/json/btcCoinOneSlips.JSON");
+    $btc = file_get_contents(__DIR__."/../json/btc.JSON");
+    $coinOne = file_get_contents(__DIR__."/../json/coinOne.JSON");
+    $slips = file_get_contents(__DIR__."/../json/btcCoinOneSlips.JSON");
     $btc = json_decode($btc, true);
     $coinOne = json_decode($coinOne, true);
     $slips = json_decode($slips, true);
@@ -194,7 +194,7 @@ function slips(){
 
     };
     $slips = json_encode($slips);
-    file_put_contents("/Library/WebServer/Documents/public_html/json/btcCoinOneSlips.JSON", $slips);
+    file_put_contents(__DIR__."/../json/btcCoinOneSlips.JSON", $slips);
 };
 
 ?>

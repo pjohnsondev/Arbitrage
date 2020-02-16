@@ -7,7 +7,7 @@
 
 
 function btcApi(){
-    $json = file_get_contents("/Library/WebServer/Documents/public_html/json/btc.JSON");
+    $json = file_get_contents(__DIR__."/../json/btc.JSON");
     // $json = json_decode($json);
     $json = json_decode($json, true);
     
@@ -40,7 +40,7 @@ function btcApi(){
         }
     };
     $json = json_encode($json);
-    file_put_contents('/Library/WebServer/Documents/public_html/json/btc.JSON', $json);
+    file_put_contents(__DIR__."/../json/btc.JSON", $json);
 };
 btcApi();
 ?>

@@ -4,7 +4,7 @@
 // This needs to be called daily. Best done with Cronjob or similar
 
 function krwaud(){
-	$co = file_get_contents("/Library/WebServer/Documents/public_html/json/coinOne.JSON");
+	$co = file_get_contents(__DIR__."/../json/coinOne.JSON");
 	$co = json_decode($co, true);
         $url = 'https://api.fixer.io/latest?symbols=AUD,KRW';
 	$ch = curl_init($url);
@@ -21,7 +21,7 @@ function krwaud(){
 	$parseRate = floatval($parseRate);
 	$co["exchange"]["rate"] = $parseRate;
 	$co = json_encode($co);
-	file_put_contents("/Library/WebServer/Documents/public_html/json/coinOne.JSON", $co);
+	file_put_contents(__DIR__."/../json/coinOne.JSON", $co);
 };
 krwaud();
 ?>

@@ -6,7 +6,7 @@
    // coins to the exchange 
 
 function coinOneApi(){
-    $json = file_get_contents("/Library/WebServer/Documents/public_html/json/coinOne.JSON");
+    $json = file_get_contents(__DIR__."/../json/coinOne.JSON");
     $json = json_decode($json, true);
     if(gettype($json["xrp"]) !== 'array'){
     	$json = array(
@@ -45,7 +45,7 @@ function coinOneApi(){
         };
     };
     $json = json_encode($json);
-    file_put_contents('/Library/WebServer/Documents/public_html/json/coinOne.JSON', $json);
+    file_put_contents("/Library/WebServer/Documents/public_html/json/coinOne.JSON", $json);
     
 };
 ?>
