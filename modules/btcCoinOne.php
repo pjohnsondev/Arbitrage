@@ -22,9 +22,9 @@ function btcCoinOne(){
     $targetLow = 24;
 
     //grab required databases/Files
-    $coinOne = file_get_contents("json/coinOne.JSON");
-    $btc = file_get_contents("json/btc.JSON");
-    $btcCoinOne = file_get_contents("json/btcCoinOne.JSON");
+    $coinOne = file_get_contents("/Library/WebServer/Documents/public_html/json/coinOne.JSON");
+    $btc = file_get_contents("/Library/WebServer/Documents/public_html/json/btc.JSON");
+    $btcCoinOne = file_get_contents("/Library/WebServer/Documents/public_html/json/btcCoinOne.JSON");
     
     // convert json data to php associative arrays (hence 'true')
     $coinOne = json_decode($coinOne, true);
@@ -570,7 +570,7 @@ function btcCoinOne(){
 
         };
     $new = json_encode($new);
-    file_put_contents("json/btcCoinOne.JSON", $new);
+    file_put_contents("/Library/WebServer/Documents/public_html/json/btcCoinOne.JSON", $new);
         
     };
 

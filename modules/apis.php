@@ -3,10 +3,10 @@
         // The use of the time prevents api call timeouts and also allows
         // the program to run without cron jobs if necessary
 
-	include 'modules/btc.php';
-	include 'modules/coinOne.php';
-	include 'modules/btcCoinOne.php';
-	include 'modules/btcCoinOneSlips.php';
+	include '/Library/WebServer/Documents/public_html/modules/btc.php';
+	include '/Library/WebServer/Documents/public_html/modules/coinOne.php';
+	include '/Library/WebServer/Documents/public_html/modules/btcCoinOne.php';
+	include '/Library/WebServer/Documents/public_html/modules/btcCoinOneSlips.php';
 
 function loop(){
         $t = 0;
