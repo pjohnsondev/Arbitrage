@@ -222,7 +222,7 @@ function btcCoinOne(){
                         //         #    echo "Message saved!";
                         //         #}
                         //     }
-                        };
+                        // };
 
 
 			            $hourly["current"] = $current;
@@ -442,7 +442,7 @@ function btcCoinOne(){
                                 //     #    echo "Message saved!";
                                 //     #}
                                 // }
-                        	};
+                        	// };
                         $hourly["current"] = $current;
                         //set each value within the hourly array
                         // use timer based on once every 10 seconds for value arrays
