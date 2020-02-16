@@ -149,9 +149,10 @@ function btcCoinOne(){
 
                         
                         //if $current is > target and previous 'current' < target send alert. This prevents spamming when extreme remains above target//
-                        if ($current > $targetHigh && $new[$currency]["high"]['hourly']["current"] < $targetHigh){
-                            $percent = round($current, 2);
-                            $body = $currency." is at ".$percent."%";
+                        
+                        // if ($current > $targetHigh && $new[$currency]["high"]['hourly']["current"] < $targetHigh){
+                        //     $percent = round($current, 2);
+                        //     $body = $currency." is at ".$percent."%";
                         
                         //Send text message or email to alert user of opportunity//
 
@@ -372,11 +373,10 @@ function btcCoinOne(){
                         // set the hourly array
             		$hourly = $new[$currency]["low"]['hourly'];
                         $current = ($btc[$currency]["toBtc"]-$coinOne[$currency]["toBtc"])/$coinOne[$currency]["toBtc"]*100;
-                        // use timer based on once every 10 seconds for value arrays
-                        //if extreme is > 9% send email
-	                            if ($current < $targetLow && $new[$currency]["low"]['hourly']["current"] > $targetLow){
-	                            $percent = round($current, 2);
-	                            $body = $currency." is at ".$percent."%";
+                        
+	                            // if ($current < $targetLow && $new[$currency]["low"]['hourly']["current"] > $targetLow){
+	                            // $percent = round($current, 2);
+	                            // $body = $currency." is at ".$percent."%";
                                 
                                 //Send text message or email to alert user of opportunity//
 
@@ -458,7 +458,7 @@ function btcCoinOne(){
                         };
                         if($hourly["extreme%"]==null){
                             $hourly["extreme%"] = $current;
-                        } else if($current < $hourly["extreme%"]){
+                        } else if($current > $hourly["extreme%"]){
                             $hourly["extreme%"] = $current;
                         }
                         $hourly["average%"] = array_sum($hourly["%s"])/count($hourly["%s"]);
@@ -490,7 +490,7 @@ function btcCoinOne(){
                         };
                         if($daily["extreme%"] == null){
                             $daily["extreme%"] = $new[$currency]["low"]['hourly']["extreme%"];
-                        } else if($new[$currency]["low"]['hourly']["extreme%"]<$daily["extreme%"]){
+                        } else if($new[$currency]["low"]['hourly']["extreme%"] > $daily["extreme%"]){
                             $daily["extreme%"] = $new[$currency]["low"]['hourly']["extreme%"];
                         };
                         $daily["average%"] = array_sum($daily["%s"])/count($daily["%s"]);
@@ -520,7 +520,7 @@ function btcCoinOne(){
                         };
                         if($weekly["extreme%"] == null){
                             $weekly["extreme%"] = $new[$currency]["low"]['daily']["extreme%"];
-                        }else if($new[$currency]["low"]['daily']["extreme%"] < $weekly["extreme%"]){
+                        }else if($new[$currency]["low"]['daily']["extreme%"] > $weekly["extreme%"]){
                             $weekly["extreme%"] = $new[$currency]["low"]['daily']["extreme%"];
                         }
                         $weekly["average%"] = array_sum($weekly["%s"])/count($weekly["%s"]);
@@ -550,7 +550,7 @@ function btcCoinOne(){
                         };
                         if($monthly["extreme%"] == null){
                             $monthly["extreme%"] = $new[$currency]["low"]['weekly']["extreme%"];
-                        } else if($new[$currency]["low"]['weekly']["extreme%"] < $monthly["extreme%"]){
+                        } else if($new[$currency]["low"]['weekly']["extreme%"] > $monthly["extreme%"]){
                             $monthly["extreme%"] = $new[$currency]["low"]['weekly']["extreme%"];
                         };
                         $monthly["average%"] = array_sum($monthly["%s"])/count($monthly["%s"]);
