@@ -23,7 +23,7 @@ function slips(){
     }
 
     if(!$slips){
-    	exit;
+    	// exit;
         // if not, create object model
         $currencyArray = array();
         $currencyArray += ["price" => null];

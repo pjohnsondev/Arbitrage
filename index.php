@@ -79,7 +79,9 @@
         </tr>
         </table>
         </div>
-        <div class="calc">
+
+        <!-- The following is designed for a later upgrade to the app that will calculated required gaps for profit -->
+        <!-- <div class="calc">
         <div class="space"></div>
         <div class="calc-head">
         <h4>calculate profit</h4>
@@ -143,9 +145,9 @@
                     <td></td>
                 </tr>
             </table>
-        </div>
-    </div>
-    </div>
+        </div> -->
+</div>
+</div>
 </body>
 <script src="js/index.js"></script>
 </html>
