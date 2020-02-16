@@ -1,0 +1,110 @@
+.container {
+    display: grid;
+    grid-template-columns: 10% auto auto 10%;
+    grid-template-rows: 20%,
+                        auto,   
+                        auto,
+                        auto,    
+                        auto;
+}
+
+.table {
+    background-color: silver;
+    grid-column: 2 / span 2;
+    grid-row: 2;
+}
+
+
+.calc {
+    background-color: silver;
+    grid-column: 2 / span 2;
+    grid-row: 3 / span 2;
+    text-align: center;
+}
+
+
+.calc .aus-ko {
+    grid-row: 2;
+    grid-column: span 2;
+    display: grid;
+    grid-template-rows: 5% auto auto auto auto 5%;
+    grid-template-columns: 25% 25% 25% 25%;
+}
+.calc .ko-aus {
+    grid-row: 2;
+    grid-column: span 2;
+    display: grid;
+    grid-template-rows: 5% auto auto auto auto 5%;
+    grid-template-columns: 25% 25% 25% 25%;
+}
+.calc .ko-aus form {
+    background-color:silver;
+    grid-row: 2;
+    grid-column: span 4;
+}
+
+.calc .ko-aus table {
+    background-color:silver;
+    text-align: center;
+    grid-row: 3;
+    grid-column: span 4;
+}
+.calc .ko-aus table td {
+    background-color: white;
+}
+
+
+.calc .aus-ko form {
+    background-color:silver;
+    grid-row: 2;
+    grid-column: span 4;
+}
+
+.calc .aus-ko table {
+    background-color:silver;
+    text-align: center;
+    grid-row: 3;
+    grid-column: span 4;
+}
+
+
+
+.space {
+    height: 1em;
+    background-color: white;
+}
+
+
+input[type=text], select {
+    width: 20%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+
+table {
+    width: 100%;
+    text-align: center;
+}
+
+tr {
+    height: 50px;
+}
+
+td {
+    background-color: white;
+}
+
+@media screen and (max-width: 1000px){
+    .table {
+        grid-column: span 4;
+    }
+    .calc {
+        grid-column: span 4;
+    }
+    
+}
