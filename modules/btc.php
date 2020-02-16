@@ -10,7 +10,6 @@ function btcApi(){
     $json = file_get_contents("json/btc.JSON");
     // $json = json_decode($json);
     $json = json_decode($json, true);
-    echo gettype($json);
     
     if(!array_key_exists("currency", $json)){
         $json = array();

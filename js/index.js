@@ -2,17 +2,17 @@
 // Coinone  call //
 ///////////////////
 function updateCOne(){
-    var market = new XMLHttpRequest();
+    var market = new XMLHttpRequest(); 
     market.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             var coin = this.responseText;
             if(coin){
             	coin = JSON.parse(coin);
-            document.getElementById("coinonexrp").innerHTML = (coin['xrp']).toFixed(2);
-            document.getElementById("coinonebch").innerHTML = (coin['bch']).toFixed(2);
-            document.getElementById("coinoneeth").innerHTML = (coin['eth']).toFixed(2);
-            document.getElementById("coinoneltc").innerHTML = (coin['ltc']).toFixed(2);
-            document.getElementById("coinoneetc").innerHTML = (coin['etc']).toFixed(2);
+            document.getElementById("coinonexrp").innerHTML = (coin['xrp']['toBtc']).toFixed(2);
+            document.getElementById("coinonebch").innerHTML = (coin['bch']['toBtc']).toFixed(2);
+            document.getElementById("coinoneeth").innerHTML = (coin['eth']['toBtc']).toFixed(2);
+            document.getElementById("coinoneltc").innerHTML = (coin['ltc']['toBtc']).toFixed(2);
+            document.getElementById("coinoneetc").innerHTML = (coin['etc']['toBtc']).toFixed(2);
             }
         }
     };   
@@ -31,13 +31,12 @@ function updateBTC(){
         if (this.readyState == 4 && this.status == 200) {
             var coin = this.responseText;
             if(coin){
-            	coin = JSON.parse(coin); 
-            	var num = coin["num"]["id"];
-                document.getElementById("btcxrp").innerHTML = (coin[num]["xrp"]).toFixed(2);
-                document.getElementById("btcbch").innerHTML = (coin[num]["bch"]).toFixed(2);
-                document.getElementById("btceth").innerHTML = (coin[num]["eth"]).toFixed(2);
-                document.getElementById("btcltc").innerHTML = (coin[num]["ltc"]).toFixed(2);
-                document.getElementById("btcetc").innerHTML = (coin[num]["etc"]).toFixed(2);
+                coin = JSON.parse(coin); 
+                document.getElementById("btcxrp").innerHTML = (coin["xrp"]['toCoinOne']).toFixed(2);
+                document.getElementById("btcbch").innerHTML = (coin["bch"]['toCoinOne']).toFixed(2);
+                document.getElementById("btceth").innerHTML = (coin["eth"]['toCoinOne']).toFixed(2);
+                document.getElementById("btcltc").innerHTML = (coin["ltc"]['toCoinOne']).toFixed(2);
+                document.getElementById("btcetc").innerHTML = (coin["etc"]['toCoinOne']).toFixed(2);
             }
         }
         
