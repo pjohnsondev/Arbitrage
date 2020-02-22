@@ -6,7 +6,7 @@
 function krwaud(){
 	$co = file_get_contents(__DIR__."/../json/coinOne.JSON");
 	$co = json_decode($co, true);
-	$url = 'https://api.exchangeratesapi.io/latest?base=AUD&symbols=KRW';
+        $url = 'https://api.exchangeratesapi.io/latest?base=AUD&symbols=KRW';
 	$ch = curl_init($url);
 	curl_setopt($ch, CURLOPT_TIMEOUT, 60);
 	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60);
