@@ -241,11 +241,8 @@ function btcCoinOne(){
                             $hourly["%s"][0] = round(($hourly['%s'][0]+$current)/2, 2);
                         };
                         //Store the most extreme % gap in the market during the last hour
-                        if($hourly["extreme%"]==null){
-                            $hourly["extreme%"]=$current;
-                        } else if($current > $hourly["extreme%"]){
-                            $hourly["extreme%"] = $current;
-                        }
+                        $hourly["extreme%"] = max($hourly["%s"]);
+                        
                         //Store the average % gap in the market for the last hour
                         $hourly["average%"] = array_sum($hourly["%s"])/count($hourly["%s"]);
                         foreach($hourly["ranges"] as $key => $value){
@@ -273,12 +270,9 @@ function btcCoinOne(){
                         } else {
                             $daily["%s"][0] = round(($daily["%s"][0]+$new[$currency]["high"]['hourly']["average%"])/2, 2);
                         };
-                        if($daily["extreme%"]==null){
-                            $daily["extreme%"] = $new[$currency]["high"]['hourly']["extreme%"];
-                        }else if($new[$currency]["high"]['hourly']["extreme%"] > $daily["extreme%"]){
-                            $daily["extreme%"] = $new[$currency]["high"]['hourly']["extreme%"];
-                            
-                        };
+
+                        $daily["extreme%"] = max($daily['%s']);
+                        
                         $daily["average%"] = array_sum($daily["%s"])/count($daily["%s"]);
                         foreach($daily["ranges"] as $key => $value){
                             for($i=0; $i < count($daily["%s"]); $i++){
@@ -337,11 +331,8 @@ function btcCoinOne(){
                         } else {
                             $monthly["%s"][0] = round(($monthly["%s"][0]+$new[$currency]["high"]['weekly']["average%"])/2, 2);
                         };
-                        if($monthly["extreme%"]==null){
-                            $monthly["extreme%"] = $new[$currency]["high"]['weekly']["extreme%"];
-                        } else if($new[$currency]["high"]['weekly']["extreme%"] > $monthly["extreme%"]){
-                            $monthly["extreme%"] = $new[$currency]["high"]['weekly']["extreme%"];
-                        }
+                        
+                        $monthly["extreme%"] = max($monthly['%s']);                        
                         $monthly["average%"] = array_sum($monthly["%s"])/count($monthly["%s"]); 
                         foreach($monthly["ranges"] as $key => $value){
                             for($i=0; $i < count($monthly["%s"])-1; $i++){
@@ -456,11 +447,9 @@ function btcCoinOne(){
                         } else {
                             $hourly["%s"][0] = round(($hourly["%s"][0]+$current)/2, 2);
                         };
-                        if($hourly["extreme%"]==null){
-                            $hourly["extreme%"] = $current;
-                        } else if($current > $hourly["extreme%"]){
-                            $hourly["extreme%"] = $current;
-                        }
+                        
+                        $hourly["extreme%"] = max($hourly["%s"]);
+                        
                         $hourly["average%"] = array_sum($hourly["%s"])/count($hourly["%s"]);
                         foreach($hourly["ranges"] as $key => $value){
                             for($i=0; $i < count($hourly["%s"]); $i++){
@@ -478,9 +467,9 @@ function btcCoinOne(){
                         // use timer based on once every 10 seconds for value arrays
                         if($daily['%s'] ==null){
                             $daily['%s'][0] = $new[$currency]["low"]['hourly']["average%"];
-                        } else if(count($hourly['%s']) > 60){
-                        	array_pop($hourly['%s']);
-                        }else if($timer%360 == 0 && count($daily['%s']) < 24){
+ //wtf is this?                       } else if(count($hourly['%s']) > 60){
+  //                      	array_pop($daily['%s']);
+                        } else if($timer%360 == 0 && count($daily['%s']) < 24){
                             array_unshift($daily['%s'], $new[$currency]["low"]['hourly']["average%"]);
                         } else if ($timer%360 == 0){
                             array_unshift($daily['%s'], $new[$currency]["low"]['hourly']["average%"]);
@@ -488,11 +477,9 @@ function btcCoinOne(){
                         } else {
                             $daily["%s"][0] = round(($daily["%s"][0]+$new[$currency]["low"]['hourly']["average%"])/2, 2);
                         };
-                        if($daily["extreme%"] == null){
-                            $daily["extreme%"] = $new[$currency]["low"]['hourly']["extreme%"];
-                        } else if($new[$currency]["low"]['hourly']["extreme%"] > $daily["extreme%"]){
-                            $daily["extreme%"] = $new[$currency]["low"]['hourly']["extreme%"];
-                        };
+                        
+                        $daily["extreme%"] = max($daily['%s']);
+                        
                         $daily["average%"] = array_sum($daily["%s"])/count($daily["%s"]);
                         foreach($daily["ranges"] as $key => $value){
                             for($i=0; $i < count($daily["%s"]); $i++){
