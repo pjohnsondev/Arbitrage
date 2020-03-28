@@ -5,10 +5,6 @@ current prices of certain coins on each exchange and determine if there is a via
 risk level of the gap closing in the time it takes for the coin to move from one exchange to another (typically 20min 
 at time of coding).
 
-When the crypto market collapsed the arbitrage opporunities also dissapeared and I took the app down from the server.
-Since then the market premium between korea and asutralia has reversed. This app was designed to reference in the 
-direction of the original premium and hence the data produced by this app will no longer be accurate and will express 
-gaps as a negative percentage rather than a positive.
 
 ## The premise
 
@@ -17,7 +13,7 @@ and korean Cryptocurrency exchanges at the time of coding. Korea has a limit to 
 be transferred out of the country so simply sending, withdrawing, and routing home was not a long term option.
 I realised that the volatility of the market caused the gap to greatly fluctuate multiple times over a 24 hour period.
 This meant that if cash was held on the australian exchange in wait for a coin to present a large gap (judged on a 24 
-hour average) I could quickly buy that coin, send it to the korean exchange and sell it immediately. 
+hour average) I could quickly buy that coin, send it to the korean exchange and sell it immediately for local currency. 
 This cash was then held on the korean exchange until a suitably low gap (again judged on a 24 hour average) presented 
 itself at which time I could buy the coin, send it to aus, and sell it immediately. This ultimately resulted in a modest 
 profit depending on the gap.
